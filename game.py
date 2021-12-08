@@ -15,9 +15,18 @@ random_num = random.randint(1,10)
 guess = True
 num_guess = 0
 while guess:
-    guess = int(input())
+    try:
+        guess = int(input())
+    except:
+        guess = True
+        print('To reiterate, a NUMBER between 1-100. You should only be entering integers.')
     num_guess += 1
-    if guess < random_num:
+    if guess < 0 or guess > 100:
+        print('Hol up. Now, I thought I told you the number would be between 1 and 100.')
+    elif guess == 0:
+        guess = True
+        print('Hol up. Now, I thought I told you the number would be between 1 and 100.')
+    elif guess < random_num:
         print('Not quite, gotta think BIGGER than that.')
     elif guess > random_num:
         print('Not quite, gotta think SMALLER than that.')
