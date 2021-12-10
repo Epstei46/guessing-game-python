@@ -1,4 +1,6 @@
 """A number-guessing game."""
+# source = https://ed.devmountain.com/materials/data-bp-1/exercises/guessing-game-python/
+# Extra Further Study at the bottom, only did first one.
 
 import random
 # from random import function_name
@@ -19,12 +21,10 @@ while guess:
         guess = int(input())
     except:
         print('To reiterate, a NUMBER between 1-100. You should only be entering integers.')
-        guess = True
         continue
         
     if guess == 0 or guess == '':
         print('Hol up. Now, I thought I told you the number would be between 1 and 100.')
-        guess = True
     elif guess < 0 or guess > 100:
         print('Hol up. Now, I thought I told you the number would be between 1 and 100.')
     elif guess < random_num:
@@ -42,12 +42,10 @@ while guess:
         replay = True if replay.strip() == 'yes' else False
         
         if replay == True:
-            print('Starting the next round.')
             random_num = random.randint(1,10)
             guess = True
             num_guess = 0
-            continue
+            print("Next round is ready! What's your first guess gonna be?")
         else:            
             print('Thanks for playing!')
             guess = False
-            
